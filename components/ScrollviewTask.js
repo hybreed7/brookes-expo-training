@@ -1,26 +1,11 @@
-import { StyleSheet, Text, View, ScrollView, FlatList } from 'react-native';
-import Task from "./components/Task"
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import Task from "./Task"
 
 export default function App() {
   return (
     <ScrollView style={styles.scrollview}>
       <View style={styles.container}>
         <Text style={styles.headerText}>Today's Tasks</Text>
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
         <Task />
       </View>
     </ScrollView>
