@@ -1,5 +1,9 @@
-import { StyleSheet, Text, View, ScrollView, FlatList } from 'react-native';
-import Task from "./components/Task"
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import Task from "./component/task";
+import Task2 from './component/task2';
+import Task3 from './component/task3';
+import Task4 from './component/Task4';
 
 export default function App() {
   return (
@@ -7,22 +11,10 @@ export default function App() {
       <View style={styles.container}>
         <Text style={styles.headerText}>Today's Tasks</Text>
         <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-      </View>
+        <Task2 />
+        <Task3 />
+        <Task4 />
+    </View>
     </ScrollView>
   );
 }
@@ -40,9 +32,10 @@ const styles = StyleSheet.create({
   },
   headerText: {
     width: "100%",
+    color: "darkRed",
     fontWeight: "700",
     fontSize: 24,
     lineHeight: 28,
     marginBottom: 30
-  }
+  },
 });
