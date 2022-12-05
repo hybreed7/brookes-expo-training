@@ -1,9 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, ImageBackground } from 'react-native';
+import {FAB} from 'react-native-paper'
 import Task from "./component/task";
 import Task2 from './component/task2';
 import Task3 from './component/task3';
 import Task4 from './component/Task4';
+
 
 export default function App() {
   return (
@@ -14,7 +16,8 @@ export default function App() {
         <Task2 />
         <Task3 />
         <Task4 />
-    </View>
+        <FAB style={styles.fab} icon="plus"/>
+      </View>
     </ScrollView>
   );
 }
@@ -30,9 +33,19 @@ const styles = StyleSheet.create({
     paddingTop: 94,
     paddingHorizontal: 20
   },
+  fab: {
+    position: 'absolute',
+    borderRadius: 52,
+    right: 20,
+    bottom: 1,
+    width: 60,
+    height: 60,
+    justifyContent: "center",
+    backgroundColor: "blue"
+  },
   headerText: {
     width: "100%",
-    color: "darkRed",
+    color: 'blue',
     fontWeight: "700",
     fontSize: 24,
     lineHeight: 28,
