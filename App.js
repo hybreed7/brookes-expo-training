@@ -80,4 +80,4 @@ const styles = StyleSheet.create({
     lineHeight: 28,
     marginBottom: 30
   }
-});
+})
