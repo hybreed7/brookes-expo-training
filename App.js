@@ -5,19 +5,13 @@ import { useState } from 'react';
 
 
 const TASK_DATA = [
-  {
-    title: "Like 👍",
-    isDone: false
-  },
-  {
-    title: "Comment 📢",
-    isDone: false
-  },
-  {
-    title: "Review 🙃",
-    isDone: false
-  },
+  {title: "Like 👍", isComplete: false},
+  {title: "Comment 📢", isComplete: true},
+  {title: "Review 🙃", isComplete: false},
+  {title: "Subscribe", isComplete: true},
 ]
+
+
 
 // filter, find, map, reduce, sort, every, flatten
 
@@ -31,7 +25,7 @@ export default function App() {
         ...prev,
         {
           title: title,
-          isDone: false
+          isComplete: false
         }
       ])
       setTitle("");
@@ -43,7 +37,18 @@ export default function App() {
 
   const onChangeText = (text) => {
     setTitle(text);
-  }
+  };
+  const onComplete = (title, complete) => {
+
+  };
+  
+
+  // const sortedTasks = tasks.sort((a, b) => {
+  //   if (a.completed && !b.completed) {
+  //     return -1;
+  //   } else if (!a.completed && b.completed) {
+  //     return 1;
+  //   }
 
   return (
     <>
@@ -52,7 +57,7 @@ export default function App() {
           <Text style={styles.headerText}>Today's Tasks</Text>
           {
             tasks.map((task, index) => (
-              <Task title={task.title} key={index} />
+              <Task title={task.title} key={index} onComplete={onComplete} />
             ))
           }
         </View>

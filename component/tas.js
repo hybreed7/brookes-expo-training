@@ -1,29 +1,35 @@
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
-export default function Task({title}) {
-    const [bgColor, setBgColor] = useState(null);
+export default function Task({title, onComplete}) {
+    const [complete, setComplete] = useState(false);
+    // const [bgColor, setBgColor] = useState(null);
 
     const handlePress = () => {
-        const newColor = bgColor ? null : 'blue';
-        setBgColor(newColor);
+        setComplete(prev => !prev);
+        // const newColor = bgColor ? null : 'blue';
+        // setBgColor(newColor);
         // setBgColor('blue');
       };
+      useEffect(() => {
+        onComplete(title, complete)
+    }, [complete])
       
     return (
         <View style={styles.container}>
             <View style={styles.leftSection}>
-                <View style={styles.square} />
-                <Text>{title}</Text>
+                <View style={[styles.square, complete && styles.squareCompleted]}/>
+                <Text style={complete && {textDecorationLine: 'line-through', textDecorationStyle: 'solid'}}>{title}</Text>
             </View>
             <TouchableOpacity onPress={handlePress}>
-            <View  style={[styles.checkbox, { backgroundColor: bgColor }]}/>
+            <View  style={[styles.checkbox, complete && styles.squareCompleted]}/>
             </TouchableOpacity>
         </View>
     )
 }
 
+// { backgroundColor: bgColor }]}
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "white",
@@ -43,6 +49,9 @@ const styles = StyleSheet.create({
         width: 24,
         marginRight: 15,
         borderRadius: 5
+    },
+    squareCompleted: {
+        backgroundColor: "green"
     },
     checkbox: {
         borderWidth: 2,
